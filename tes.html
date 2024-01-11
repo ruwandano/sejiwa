@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tes Kesehatan Mental</title>
+    <link rel="icon" href="logo1.png">
+    <link rel="stylesheet" href="tes.css">
+</head>
+<body>
+    <section>
+        <header>
+            <a href="landingpage.html" class="logo"><img height="40px" width="256px" src="logo.png"></a>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php">About Us</a></li>
+                <li><a href="index.php">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+            <h2>Silakan Isi Tes Kesehatan Mental</h2>
+            <form id="tesForm">
+                <label for="pertanyaan1">Pertanyaan 1: Apakah Anda merasa mudah berkonsentrasi dalam pekerjaan sehari-hari?</label>
+                <p><input type="checkbox" name="pertanyaan1" placeholder="jawaban" required>Iya</p>
+                <p><input type="checkbox" name="pertanyaan1" placeholder="jawaban" required>Tidak</p>
+                <label for="pertanyaan2">Pertanyaan 2: Bagaimana perasaan Anda terhadap diri sendiri saat ini?</label>
+                <p><input type="checkbox" name="pertanyaan2" placeholder="jawaban" required>Iya</p>
+                <p><input type="checkbox" name="pertanyaan2" placeholder="jawaban" required>Tidak</p>
+                <label for="pertanyaan3">Pertanyaan 3: Apakah Anda merasa memiliki dukungan sosial yang memadai?</label>
+                <p><input type="checkbox" name="pertanyaan3" placeholder="jawaban" required>Iya</p>
+                <p><input type="checkbox" name="pertanyaan3" placeholder="jawaban" required>Tidak</p>
+                <label for="pertanyaan4">Pertanyaan 4: Seberapa sering Anda merasa tertekan atau terlalu lelah?</label>
+                <p><input type="checkbox" name="pertanyaan4" placeholder="jawaban" required>Iya</p>
+                <p><input type="checkbox" name="pertanyaan4" placeholder="jawaban" required>Tidak</p>
+                <label for="pertanyaan5">Pertanyaan 5: Apa strategi yang biasa Anda gunakan untuk mengatasi kecemasan?</label>
+                <p><input type="checkbox" name="pertanyaan5" placeholder="jawaban" required>Iya</p>
+                <p><input type="checkbox" name="pertanyaan5" placeholder="jawaban" required>Tidak</p>
+                <!-- Tambahkan pertanyaan lainnya sesuai kebutuhan -->
+    
+                <center><button type="button" onclick="hitungSkor()">Selesai</button></center>
+            </form>
+    
+            <div id="hasilTes"></div>
+        </section>
+    
+        <script>
+            function hitungSkor() {
+                // Dapatkan nilai dari setiap pertanyaan
+                var nilaiPertanyaan1 = parseInt(document.forms["tesForm"]["pertanyaan1"].value);
+                var nilaiPertanyaan2 = parseInt(document.forms["tesForm"]["pertanyaan2"].value);
+                var nilaiPertanyaan3 = parseInt(document.forms["tesForm"]["pertanyaan3"].value);
+                var nilaiPertanyaan4 = parseInt(document.forms["tesForm"]["pertanyaan4"].value);
+                var nilaiPertanyaan5 = parseInt(document.forms["tesForm"]["pertanyaan5"].value);
+
+                // Hitung total skor (Contoh sederhana, sesuaikan dengan kebutuhan)
+                var totalSkor = nilaiPertanyaan1 + nilaiPertanyaan2 + nilaiPertanyaan3 + nilaiPertanyaan4 + nilaiPertanyaan5;
+
+                // Tentukan hasil berdasarkan total skor
+                var hasilTes = "";
+                if (totalSkor <= 5) {
+                    hasilTes = "Anda dalam kondisi kesehatan mental yang baik.";
+                } else {
+                    hasilTes = "Anda mungkin memerlukan perhatian lebih terkait kesehatan mental. Silakan konsultasikan dengan ahli kesehatan.";
+                }
+
+                // Tampilkan hasil tes di dalam div hasilTes
+                document.getElementById("hasilTes").innerHTML = "<h3>Hasil Tes:</h3><p>" + hasilTes + "</p>";
+            }
+        </script>
+</body>
+</html>
